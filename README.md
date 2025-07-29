@@ -59,3 +59,27 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+
+
+
+
+
+
+
+  $image = $request->file('image');
+        $imageName = time().'.'.$image->extension();
+        $manager = new ImageManager(new Driver());
+
+        $path = public_path('images');
+        $img = $manager->read($image->path());
+        $img->text('Example form DevScriptSchool.com', 100, 100, function (FontFactory $font) {
+            $font->filename(public_path('fonts/LilitaOne-Regular.ttf'));
+            $font->color('black');
+            $font->size(70);
+            $font->stroke('ff5500', 2);
+            $font->lineHeight(1.6);
+            $font->angle(2);
+            $font->wrap(250);
+        });
