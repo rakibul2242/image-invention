@@ -17,24 +17,38 @@
                 </div>
             @endif
 
-            <form action="{{ route('image.upload') }}" method="POST" enctype="multipart/form-data" class="space-y-5">
+            <form action="{{ route('addText.upload') }}" method="POST" enctype="multipart/form-data" class="space-y-2">
                 @csrf
 
                 <div>
-                    <label for="title" class="block text-sm font-semibold text-gray-700 mb-1">Title</label>
-                    <input type="text" name="title" id="title"
+                    <input type="text" name="title1"
                         class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-300"
-                        placeholder="Enter image title" value="{{ old('title') }}">
-                    @error('title')
+                        placeholder="Text 1" value="{{ old('title1') }}">
+                    @error('title1')
                         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                     @enderror
                 </div>
-
                 <div>
-                    <label for="file" class="block text-sm font-semibold text-gray-700 mb-1">Select Image</label>
-                    <input type="file" name="file" id="file"
-                        class="w-full file:px-4 file:py-2 file:bg-indigo-600 file:text-white file:rounded-md file:border-none border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-300">
-                    @error('file')
+                    <input type="text" name="title2"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-300"
+                        placeholder="Text 2" value="{{ old('title2') }}">
+                    @error('title2')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div>
+                    <input type="text" name="title3"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-300"
+                        placeholder="Text 3" value="{{ old('title3') }}">
+                    @error('title3')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div>
+                    <input type="text" name="title4"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-300"
+                        placeholder="Text 4" value="{{ old('title4') }}">
+                    @error('title4')
                         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                     @enderror
                 </div>
@@ -51,6 +65,14 @@
             <img src="{{ session('image_path') ? asset('storage/' . session('image_path')) : 'https://media.istockphoto.com/id/1055079680/vector/black-linear-photo-camera-like-no-image-available.jpg?s=612x612&w=0&k=20&c=P1DebpeMIAtXj_ZbVsKVvg-duuL0v9DlrOZUvPG6UJk=' }}"
                 alt="Uploaded Image">
         </div>
+
+
+
+
+        <form action="{{ route('certificate.generate') }}" method="POST">
+            @csrf
+            <button type="submit">Generate Certificate</button>
+        </form>
     </body>
 
 </html>
